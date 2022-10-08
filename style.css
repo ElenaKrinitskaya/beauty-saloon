@@ -54,15 +54,12 @@ body {
 .header {
 
     overflow: hidden;
-
+    background: url("img/background-header.png");
 }
 
 .header .container {
     position: relative;
-    margin-bottom: 90px;
-    background: url("img/background-header.png");
-    background-color: #F8F6F7;
-    background-size: cover ;
+    background-size: cover;
 }
 
 .header-top {
@@ -82,36 +79,9 @@ body {
 }
 
 .girl-header {
-    width: 524px;
-    height: 510px;
-    position: absolute;
-    background: url("./img/girl.png");
-    bottom: -90px;
-    right: 95px;
+    background: url("img/circle.svg") no-repeat bottom;
 }
 
-.girl-header:before {
-    content: '';
-    width: 472px;
-    height: 472px;
-    background-color: #FB9475;
-    position: absolute;
-    bottom: -110px;
-    right: 0;
-    z-index: 1;
-
-    border-radius: 50%;
-}
-
-.girl-header:after {
-    content: '';
-    background: url('./img/girl.png');
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 2;
-
-}
 
 .header-hero {
     max-width: 540px;
@@ -139,7 +109,8 @@ body {
     color: #333333;
     transition: 0.15s color;
 }
-.navigation a:hover{
+
+.navigation a:hover {
     color: #00BF78;
 }
 
@@ -264,7 +235,7 @@ body {
     width: 445px;
     height: 296.33px;
     background: url("/img/video.png");
-    background-size: 445px 296.33px;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -280,24 +251,28 @@ body {
     line-height: 26px;
     color: #FFFFFF;
 }
-.section-footer{
+
+.section-footer {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
 }
-.about-list{
+
+.about-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 15px
 }
-.about-list-img{
+
+.about-list-img {
     width: 48px;
     height: 48px;
 }
-.about-list-title{
+
+.about-list-title {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -305,7 +280,8 @@ body {
     line-height: 22px;
     color: #333333;
 }
-.about-list-text{
+
+.about-list-text {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -315,7 +291,7 @@ body {
     color: #333333;
 }
 
-.footer-container{
+.footer-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -324,7 +300,8 @@ body {
     margin: auto;
     padding-bottom: 20px;
 }
-.company-name{
+
+.company-name {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -332,7 +309,8 @@ body {
     line-height: 15px;
     color: #333333;
 }
-.policy{
+
+.policy {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -341,14 +319,16 @@ body {
     text-decoration-line: underline;
     color: #278AFF;
 }
-.footer-menu{
+
+.footer-menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
     gap: 28px;
 }
-.footer-menu-item{
+
+.footer-menu-item {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
