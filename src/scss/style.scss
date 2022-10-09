@@ -54,7 +54,7 @@ body {
 .header {
 
     overflow: hidden;
-    background: url("img/background-header.png");
+    background: url("../images/background-header.png");
 }
 
 .header .container {
@@ -79,7 +79,7 @@ body {
 }
 
 .girl-header {
-    background: url("img/circle.svg") no-repeat bottom;
+    background: url("../images/circle.svg") no-repeat bottom;
 }
 
 
@@ -234,7 +234,7 @@ body {
 .video {
     width: 445px;
     height: 296.33px;
-    background: url("/img/video.png");
+    background: url("../images/video.png");
     background-size: cover;
     display: flex;
     flex-direction: column;
