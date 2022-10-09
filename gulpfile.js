@@ -51,13 +51,6 @@ function serve() {
     watch('src/**/*.html', buildHtml);
 }
 
-// Создание дев-сервера
-function createDevServer() {
-    browserSync.init({
-        server: 'src',
-        notify: false
-    })
-}
 
 exports.build = series(cleanDist, buildSass, buildHtml, copy);
-exports.default = series(buildSass, parallel(createDevServer, serve));
+exports.default = series(buildSass, parallel(serve));

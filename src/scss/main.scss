@@ -1,5 +1,4 @@
 @import "libs";
-
 html {
   box-sizing: border-box;
 }
@@ -14,7 +13,8 @@ html, body, .wrapper {
 
 body {
   margin: 0;
-  color: #E5E5E5
+  color: #E5E5E5;
+  min-width: 320px;
 }
 
 .wrapper {
@@ -24,6 +24,7 @@ body {
 
 .container {
   max-width: 1110px;
+
   margin: auto;
   padding: 0 15px;
   position: relative;
@@ -67,6 +68,7 @@ body {
     justify-content: space-between;
     padding-top: 30px;
   }
+
 
   &__phone {
     display: flex;
@@ -114,6 +116,7 @@ body {
   &__girl {
     background: url("../images/circle.svg") no-repeat bottom;
   }
+
 }
 
 .phone {
@@ -305,7 +308,7 @@ body {
   &__item {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     padding-bottom: 48px;
   }
 
@@ -369,60 +372,6 @@ body {
   }
 }
 
-.price {
-  &__info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 206px
-  }
-
-  &__left {
-    display: flex;
-    flex-direction: column;
-    gap: 8px
-  }
-
-  &__title {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    color: #333333;
-  }
-
-  &__text {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    color: #333333;
-  }
-
-  &__value {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-    color: #00BF78;
-  }
-
-  &__block {
-    display: flex;
-    flex-direction: column;
-    gap: 61px;
-  }
-}
 
 .masters {
   &__subtitle {
@@ -451,6 +400,18 @@ body {
     background: url("../images/firstMaster.png");
     background-size: cover;
     border-radius: 8px;
+    &.-secondMaster{
+      background: url("../images/secondMaster.png");
+      background-size: cover;
+    }
+    &.-thirdMaster{
+      background: url("../images/thirdMaster.png");
+      background-size: cover;
+    }
+    &.-forthMaster{
+      background: url("../images/forthMaster.png");
+      background-size: cover;
+    }
   }
   &__item-name{
 
