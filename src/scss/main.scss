@@ -1,4 +1,6 @@
 @import "libs";
+@import "mixins";
+
 html {
   box-sizing: border-box;
 }
@@ -24,11 +26,21 @@ body {
 
 .container {
   max-width: 1110px;
-
   margin: auto;
   padding: 0 15px;
   position: relative;
   background-size: cover;
+  @include isMobile {
+  max-width: 480px;
+}
+
+
+  &.-works {
+    max-width: 1440px;
+    @include isMobile{
+      max-width: 480px;
+    }
+  }
 }
 
 .main {
@@ -38,6 +50,16 @@ body {
 
 .section {
   padding: 50px 0;
+
+  &.-background-gray {
+    background: #F8F6F7;
+  }
+  &.-padding {
+    @include isMobile {
+      padding-bottom: 350px;
+    }
+  }
+
 
   &__header {
     display: flex;
@@ -53,6 +75,9 @@ body {
     font-size: 48px;
     line-height: 59px;
     color: #333333;
+    &.-contacts{
+      padding-bottom: 32px;
+    }
   }
 }
 
@@ -67,6 +92,13 @@ body {
     align-items: center;
     justify-content: space-between;
     padding-top: 30px;
+    @include isMobile{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 30px;
+    }
   }
 
 
@@ -74,7 +106,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: left;
-    gap: 8px
+    gap: 8px;
+    @include isMobile{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__body {
@@ -82,6 +120,13 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    @include isMobile{
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__hero {
@@ -92,6 +137,15 @@ body {
     flex-direction: column;
     justify-content: left;
     gap: 50px;
+    @include isMobile{
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      text-align: center;
+    }
 
     &-title {
       font-family: 'Montserrat', sans-serif;
@@ -115,6 +169,9 @@ body {
 
   &__girl {
     background: url("../images/circle.svg") no-repeat bottom;
+    @include isMobile{
+      display: none;
+    }
   }
 
 }
@@ -133,6 +190,9 @@ body {
   font-size: 24px;
   font-family: 'Montserrat', sans-serif;
   color: #333333;
+  @include isMobile{
+    padding-bottom: 20px;
+  }
 }
 
 .navigation {
@@ -141,11 +201,23 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-
-  &.-price {
+  @include isMobile{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     gap: 28px;
-    justify-content: unset;
+    padding-bottom: 20px;
+  }
+
+  .price-wrapper{
+    @include isMobile{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &.-price {
     padding-bottom: 57px;
   }
 }
@@ -202,6 +274,17 @@ body {
   line-height: 14px;
   text-align: center;
   color: #FFFFFF;
+  @include isMobile{
+    max-width: 480px;
+  }
+  &.-contacts{
+    width: 375px;
+    height: 48px;
+    @include isMobile{
+      max-width: 480px;
+      width: 300px;
+    }
+  }
 }
 
 .socials {
@@ -209,6 +292,16 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  &.-bottom{
+    flex-direction: row;
+  }
+  @include isMobile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+  }
 }
 
 .about {
@@ -218,6 +311,13 @@ body {
   align-items: center;
   position: relative;
   padding-bottom: 100px;
+  @include isMobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
 
   &__info {
     display: flex;
@@ -253,6 +353,9 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+    @include isMobile{
+      width: 350px;
+    }
   }
 
   &__video-text {
@@ -269,6 +372,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 
   &__list {
@@ -305,19 +409,42 @@ body {
 }
 
 .services {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+    @include isMobile{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 480px;
+      justify-content: center;
+    }
+  }
   &__item {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding-bottom: 48px;
+    @include isMobile{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      max-width: 480px;
+      justify-content: center;
+    }
   }
 
   &__photo {
-    background: url('../images/serviceOne.png');
+    background: url("../images/serviceOne.png");
     background-size: cover;
     border-radius: 8px;
     width: 350px;
     height: 180px;
+    @include isMobile{
+      max-width: 480px;
+    }
   }
 
   &__title {
@@ -335,6 +462,8 @@ body {
     font-weight: 400;
     font-size: 12px;
     line-height: 20px;
+    height: 60px;
+    width: 349px;
     color: #333333;
   }
 }
@@ -350,6 +479,9 @@ body {
     max-width: 1110px;
     margin: auto;
     padding-bottom: 20px;
+    @include isMobile{
+      max-width: 480px;
+    }
   }
 
   &__company-name {
@@ -372,8 +504,57 @@ body {
   }
 }
 
+.price-info {
+  &__container {
+    padding-bottom: 32px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas:
+    "a b"
+    "a b"
+    "a b"
+    "a b";
+    &.-left{
+      grid-area: a;
+    }
+    &.-right{
+      grid-area: b;
+    }
+  }
+
+  &__type-first {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    padding-bottom: 8px;
+  }
+
+  &__type-second {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #333333;
+  }
+
+  &__value {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: right;
+    color: #00BF78;
+  }
+
+}
 
 .masters {
+
   &__subtitle {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -383,37 +564,81 @@ body {
     color: #333333;
     padding-bottom: 24px;
   }
-  &__block{
+
+  &__block {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    @include isMobile{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
   }
-  &__item{
+
+  &__item {
     display: flex;
     flex-direction: column;
     gap: 20px
   }
-  &__item-photo{
+
+  &__item-photo {
     width: 255px;
     height: 300px;
     background: url("../images/firstMaster.png");
     background-size: cover;
     border-radius: 8px;
-    &.-secondMaster{
+    @include isMobile{
+      max-width: 480px;
+    }
+
+    &-text {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      color: #FFFFFF;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      opacity: 0%;
+      width: 255px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      @include isMobile{
+        max-width: 480px;
+      }
+
+      &:hover {
+        opacity: 100%;
+        background-color: rgba(0, 0, 0, .5);
+      }
+    }
+
+    &.-secondMaster {
       background: url("../images/secondMaster.png");
       background-size: cover;
     }
-    &.-thirdMaster{
+
+    &.-thirdMaster {
       background: url("../images/thirdMaster.png");
       background-size: cover;
     }
-    &.-forthMaster{
+
+    &.-forthMaster {
       background: url("../images/forthMaster.png");
       background-size: cover;
     }
   }
-  &__item-name{
+
+  &__item-name {
 
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -422,7 +647,8 @@ body {
     line-height: 22px;
     color: #333333;
   }
-  &__item-specialization{
+
+  &__item-specialization {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -430,8 +656,9 @@ body {
     line-height: 17px;
     color: #333333;
   }
-  &__item-experience{
-    font-family: 'Montserrat' , sans-serif;
+
+  &__item-experience {
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 300;
     font-size: 12px;
@@ -440,3 +667,271 @@ body {
     color: #333333;
   }
 }
+
+
+.works {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 29px;
+  padding-bottom: 116.8px;
+  @include isMobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+
+  &__photo {
+    width: 338px;
+    height: 338px;
+    background: url("../images/firstWork.png");
+    background-size: cover;
+    border-radius: 8px;
+    transition: 0.5s;
+    @include isMobile{
+      max-width: 480px;
+    }
+
+    &.-second-work {
+      background: url("../images/secondWork.png");
+      background-size: cover;
+    }
+
+    &.-third-work {
+      background: url("../images/thirdWork.png");
+      background-size: cover;
+    }
+
+    &.-forth-work {
+      background: url("../images/forthWork.png");
+      background-size: cover;
+    }
+    &:hover{
+      transform: scale(1.1);
+    }
+
+  }
+  &__photo-text{
+    width: 338px;
+    height: 338px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0%;
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+    @include isMobile{
+      max-width: 480px;
+    }
+
+
+    &:hover {
+      opacity: 100%;
+      background-color: rgba(0, 0, 0, .5);
+      border-radius: 8px;
+    }
+
+  }
+
+  &__arrows {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+  }
+
+  &__ellipse {
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      background: url("../images/ellipse.svg");
+    }
+  }
+  &__glass{
+    width: 48px;
+    height: 48px;
+    background: url("../images/glass.svg");
+    background-size: cover;
+  }
+  &__brands {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 52px;
+
+  }
+    &__brands-text{
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      color: #333333;
+    }
+  &__brands-photo{
+    width: 920px;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 35%;
+    @include isMobile{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      @include isMobile{
+        max-width: 480px;
+      }
+    }
+  }
+}
+.contacts{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  @include isMobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+  &__address{
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #333333;
+    padding-bottom: 20px;
+  }
+  &__phone{
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 14px;
+    color: #333333;
+    padding-bottom: 20px;
+  }
+  &__email{
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration-line: underline;
+    color: #278AFF;
+    padding-bottom: 20px;
+    cursor: pointer;
+  }
+  &__socials-title{
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #333333;
+    padding-top: 12px;
+    padding-bottom: 14px;
+  }
+  &__form{
+    width: 445px;
+    height: 406px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    @include isMobile{
+      max-width: 480px;
+      width: 400px;
+      height: 350px;
+    }
+  }
+  &__form-inner{
+    padding: 40px 35px;
+  }
+  &__form-title{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 14px;
+    color: #333333;
+    padding-bottom: 15px;
+  }
+  &__form-message{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    padding-bottom: 35px;
+  }
+  &__form-input{
+    border: 1px solid #D8D8D8;
+    border-radius: 4px;
+    width: 375px;
+    height: 44px;
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    color: #333333;
+    padding: 15px;
+    @include isMobile{
+      max-width: 480px;
+      width: 300px;
+    }
+    &::placeholder{
+      color: #A0A0A0;
+    }
+  }
+  &__input-block{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  &__agreement{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    color: #333333;
+  }
+  &__agreement-url{
+    color: #278AFF;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+
+
