@@ -6,24 +6,54 @@
     <title>Мир красоты</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="null.css">
+    <link rel="stylesheet" href="normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <style>
+        .swiper {
+            max-width: 100%;
+            --swiper-theme-color: #00bf78;
+        }
+        .swiper-slide{
+            padding-top: 20px;
+        }
+    </style>
+
 </head>
 <body>
-
+<div id="hamb" class="hamb">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</div>
+<div id="popup" class="popup">
+    <nav id="menu" class="navigation__popup">
+        <a class="navigation-item" href="#price">Услуги и цены</a>
+        <a class="navigation-item" href="#masters">Мастера</a>
+        <a class="navigation-item" href="#works">Наши работы</a>
+        <a class="navigation-item" href="#about">О нас</a>
+        <a class="navigation-item" href="#contacts">Контакты</a>
+    </nav>
+</div>
 <div class="wrapper">
     <header class="header">
         <div class="container">
             <div class="header__top">
+                <button class="hamb">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <a href="#" class="logo">Мир красоты</a>
-                <nav class="navigation">
-                    <a class="navigation-item" href="#">Услуги и цены</a>
-                    <a class="navigation-item" href="#">Мастера</a>
-                    <a class="navigation-item" href="#">Наши работы</a>
-                    <a class="navigation-item" href="#">О нас</a>
-                    <a class="navigation-item" href="#">Контакты</a>
+                <nav class="navigation__hamb">
+                    <a class="navigation-item" href="#price">Услуги и цены</a>
+                    <a class="navigation-item" href="#masters">Мастера</a>
+                    <a class="navigation-item" href="#works">Наши работы</a>
+                    <a class="navigation-item" href="#about">О нас</a>
+                    <a class="navigation-item" href="#contacts">Контакты</a>
                 </nav>
                 <div class="header__phone">
                     <a class="phone" href="tel:84996861762">8 (499) 686-17-62</a>
@@ -40,9 +70,9 @@
                     <img class="header__girl" src="./images/girl.png">
                 </div>
                 <div class="socials">
-                    <a href="#"><img src="./images/vk.svg"></a>
-                    <a href="#"><img src="./images/inst.svg"></a>
-                    <a href="#"><img src="./images/yt.svg"></a>
+                    <a href="#"><img class="scale" src="./images/vk.svg"></a>
+                    <a href="#"><img class="scale" src="./images/inst.svg"></a>
+                    <a href="#"><img class="scale" src="./images/yt.svg"></a>
                 </div>
             </div>
 
@@ -50,7 +80,7 @@
     </header>
 
     <main class="main">
-        <section class="section">
+        <section class="section" id="about">
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title">О салоне</h2>
@@ -69,10 +99,12 @@
                             Мы помогаем <br> нашим клиентам воплотить их индивидуальность во внешнем<br> облике.
                             Мы создаем стиль – вместе с Вами и для Вас.</p>
                     </div>
-                    <div class="about__video">
-                        <img src="images/play.svg">
-                        <p class="about__video-text">Короткое видео о нас</p>
-                    </div>
+                    <a data-fslightbox="first-lightbox" href="https://www.youtube.com/watch?v=R6NGrsKJ8b4">
+                        <div class="about__video scale -video">
+                            <img src="images/play.svg">
+                            <p class="about__video-text">Короткое видео о нас</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="about__benefits">
                     <div class="about__list">
@@ -109,7 +141,7 @@
                             <div class="services__photo"></div>
                             <div class="services__title">Маникюр</div>
                             <div class="services__text">Аппаратный, комбинированный или классический.</div>
-                            <button class="button">Записаться</button>
+                            <button class="button -services">Записаться</button>
                         </div>
                         <div class="services__item">
                             <div class="services__photo"></div>
@@ -118,7 +150,7 @@
                                 использование базы и топа. Каждый слой <br>
                                 полимеризуется в LED-лампе.
                             </div>
-                            <button class="button">Записаться</button>
+                            <button class="button -services">Записаться</button>
 
                         </div>
                         <div class="services__item">
@@ -127,14 +159,14 @@
                             <div class="services__text">Выполняется в одноразовых перчатках наполненных <br>
                                 увлажняющим лосьоном.
                             </div>
-                            <button class="button">Записаться</button>
+                            <button class="button -services">Записаться</button>
 
                         </div>
                         <div class="services__item">
                             <div class="services__photo"></div>
                             <div class="services__title">Педикюр</div>
                             <div class="services__text">Аппаратный, комбинированный или классический.</div>
-                            <button class="button">Записаться</button>
+                            <button class="button -services">Записаться</button>
 
                         </div>
                         <div class="services__item">
@@ -144,102 +176,99 @@
                                 увеличивается на 80%, также выводит токсины и <br>
                                 укрепляет суставы.
                             </div>
-                            <button class="button">Записаться</button>
+                            <button class="button -services">Записаться</button>
 
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section class="section" id="price">
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title">Услуги и цены</h2>
                 </div>
-                <nav class="navigation -price">
-                    <a class="navigation-item -price" href="#">Стрижка и укладка</a>
-                    <a class="navigation-item -price" href="#">Косметология</a>
-                    <a class="navigation-item -price" href="#">Маникюр и педикюр</a>
-                    <a class="navigation-item -price" href="#">Макияж</a>
-                    <a class="navigation-item -price" href="#">Брови и ресницы</a>
-                    <a class="navigation-item -price" href="#">Массаж</a>
+                <nav class="navigation -price" id="price-menu">
+                    <a class="navigation-item -price" href="#" id="haircut">Стрижка и укладка</a>
+                    <a class="navigation-item -price" href="#" id="cosmetology">Косметология</a>
+                    <a class="navigation-item -price" href="#" id="nails">Маникюр и педикюр</a>
+                    <a class="navigation-item -price" href="#" id="makeup">Макияж</a>
+                    <a class="navigation-item -price" href="#" id="brows">Брови и ресницы</a>
+                    <a class="navigation-item -price" href="#" id="massage">Массаж</a>
                 </nav>
                 <div class="price__wrapper">
-                    <div class="price-info">
-                        <div class="price-info__container -left">
-                            <div class="price-info__left">
-                                <p class="price-info__type-first">Женская стрижка</p>
-                                <p class="price-info__type-second">Короткие волосы</p>
+                    <div class="price__info">
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="left-title-first">Женская стрижка</p>
+                                <p class="price__info-type-second" id="left-text-first">Короткие волосы</p>
                             </div>
-                            <div class="price-info__right">
-                                <p class="price-info__value">1200 ₽</p>
-                            </div>
+
                         </div>
-                        <div class="price-info__container -left">
-                            <div class="price-info__left">
-                                <p class="price-info__type-first">Мужская стрижка</p>
-                                <p class="price-info__type-second">Короткие волосы</p>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="left-title-second">Мужская стрижка</p>
+                                <p class="price__info-type-second" id="left-text-second">Короткие волосы</p>
                             </div>
-                            <div class="price-info__right">
-                                <p class="price-info__value">1200 ₽</p>
-                            </div>
+
                         </div>
-                        <div class="price-info__container -left">
-                            <div class="price-info__left">
-                                <p class="price-info__type-first">Детский стиль</p>
-                                <p class="price-info__type-second">Короткие волосы</p>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="left-title-third">Детский стиль</p>
+                                <p class="price__info-type-second" id="left-text-third">Короткие волосы</p>
                             </div>
-                            <div class="price-info__right">
-                                <p class="price-info__value">1200 ₽</p>
-                            </div>
+
                         </div>
-                        <div class="price-info__container -left">
-                            <div class="price-info__left">
-                                <p class="price-info__type-first">Креативный стиль</p>
-                                <p class="price-info__type-second">Короткие волосы</p>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="left-title-forth">Креативный стиль</p>
+                                <p class="price__info-type-second" id="left-text-forth">Короткие волосы</p>
                             </div>
-                            <div class="price-info__right">
-                                <p class="price-info__value">1200 ₽</p>
-                            </div>
+
                         </div>
                     </div>
-                    <div class="price-info">
-                        <div class="price-info__container -right">
-                            <div class="price-info__left">
-                                <p class="price-info__type-first">Стрижка бороды и усов</p>
-                                <p class="price-info__type-second">Короткие волосы</p>
+                    <div class="price__info-values">
+                        <p class="price__info-value" id="left-price-first">1200 ₽</p>
+                        <p class="price__info-value" id="left-price-second">1200 ₽</p>
+                        <p class="price__info-value" id="left-price-third">1200 ₽</p>
+                        <p class="price__info-value" id="left-price-forth">1200 ₽</p>
+                    </div>
+                    <div class="price__info">
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="right-title-first">Стрижка бороды и усов</p>
+                                <p class="price__info-type-second" id="right-text-first">Короткие волосы</p>
                             </div>
-                            <div class="price-info__right">
-                                <p class="price-info__value">1200 ₽</p>
-                            </div>
+
                         </div>
-                        <div class="price-info__container -right">
-                            <div class="price-info__left">
-                                <p class="price-info__type-first">Экспресс укладка</p>
-                                <p class="price-info__type-second">Короткие волосы</p>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="right-title-second">Экспресс укладка</p>
+                                <p class="price__info-type-second" id="right-text-second">Короткие волосы</p>
                             </div>
-                            <div class="price-info__right">
-                                <p class="price-info__value">1200 ₽</p>
-                            </div>
+
                         </div>
-                        <div class="price-info__container -right">
-                            <div class="price-info__left">
-                                <p class="price-info__type-first">Укладка дневная</p>
-                                <p class="price-info__type-second">Короткие волосы</p>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="right-title-third">Укладка дневная</p>
+                                <p class="price__info-type-second" id="right-text-third">Короткие волосы</p>
                             </div>
-                            <div class="price-info__right">
-                                <p class="price-info__value">1200 ₽</p>
-                            </div>
+
                         </div>
-                        <div class="price-info__container -right">
-                            <div class="price-info__left">
-                                <div class="price-info__type-first">Прическа вечерняя (свадебная)</div>
-                                <p class="price-info__type-second">Короткие волосы</p>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="right-title-forth">Прическа вечерняя
+                                    (свадебная)</p>
+                                <p class="price__info-type-second" id="right-text-forth">Короткие волосы</p>
                             </div>
-                            <div class="price-info__right">
-                                <p class="price-info__value">3000 ₽</p>
-                            </div>
+
                         </div>
+                    </div>
+                    <div class="price__info-values">
+                        <p class="price__info-value" id="right-price-first">1200 ₽</p>
+                        <p class="price__info-value" id="right-price-second">1200 ₽</p>
+                        <p class="price__info-value" id="right-price-third">1200 ₽</p>
+                        <p class="price__info-value" id="right-price-forth">3000 ₽</p>
                     </div>
 
 
@@ -248,7 +277,8 @@
             </div>
 
         </section>
-        <section class="section -background-gray">
+
+        <section class="section -background-gray" id="masters">
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title">Мастера</h2>
@@ -301,47 +331,56 @@
             </div>
         </section>
 
-        <section class="section -padding">
+        <section class="section -padding" id="works">
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title">Наши работы</h2>
                     <div class="works__arrows">
-                        <div class="works__ellipse">
+                        <div class="works__ellipse-left">
                             <img src="./images/arrow-left.svg">
                         </div>
-                        <div class="works__ellipse">
+                        <div class="works__ellipse-right">
                             <img src="./images/arrow-right.svg">
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="works">
-                <div class="works__photo">
-                    <div class="works__photo-text">
-                        <div class="works__glass"></div>
-                        <div>Увеличить</div>
+                <div class="works__container swiper">
+                    <div class="works swiper-wrapper">
+                        <a data-fslightbox="second-lightbox" href="images/firstWork.png" class="swiper-slide">
+                            <div class="works__photo">
+                                <div class="works__photo-text">
+                                    <div class="works__glass"></div>
+                                    <div>Увеличить</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a data-fslightbox="second-lightbox" href="images/secondWork.png" class="swiper-slide">
+                            <div class="works__photo -second-work">
+                                <div class="works__photo-text">
+                                    <div class="works__glass"></div>
+                                    <div>Увеличить</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a data-fslightbox="second-lightbox" href="images/thirdWork.png" class="swiper-slide">
+                            <div class="works__photo -third-work">
+                                <div class="works__photo-text">
+                                    <div class="works__glass"></div>
+                                    <div>Увеличить</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a data-fslightbox="second-lightbox" href="images/forthWork.png" class="swiper-slide">
+                            <div class="works__photo -forth-work">
+                                <div class="works__photo-text">
+                                    <div class="works__glass"></div>
+                                    <div>Увеличить</div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="works__photo -second-work">
-                    <div class="works__photo-text">
-                        <div class="works__glass"></div>
-                        <div>Увеличить</div>
-                    </div>
-                </div>
-                <div class="works__photo -third-work">
-                    <div class="works__photo-text">
-                        <div class="works__glass"></div>
-                        <div>Увеличить</div>
-                    </div>
-                </div>
-                <div class="works__photo -forth-work">
-                    <div class="works__photo-text">
-                        <div class="works__glass"></div>
-                        <div>Увеличить</div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
                 <div class="works__brands">
                     <div class="works__brands-text"> Бренды которые мы используем в работе</div>
                     <div class="works__brands-photo">
@@ -355,7 +394,7 @@
             </div>
         </section>
 
-        <section class="section -background-gray">
+        <section class="section -background-gray" id="contacts">
             <div class="container">
                 <div class="contacts">
                     <div class="contacts__left">
@@ -365,21 +404,22 @@
                         <p class="contacts__email">info@more-krasoty.ru</p>
                         <p class="contacts__socials-title">Мы в социальных сетях</p>
                         <div class="socials -bottom">
-                            <a href="#"><img src="./images/vk.svg"></a>
-                            <a href="#"><img src="./images/inst.svg"></a>
-                            <a href="#"><img src="./images/yt.svg"></a>
+                            <a href="#"><img class="scale" src="./images/vk.svg"></a>
+                            <a href="#"><img class="scale" src="./images/inst.svg"></a>
+                            <a href="#"><img class="scale" src="./images/yt.svg"></a>
                         </div>
                     </div>
-                    <form class="contacts__form">
+                    <form class="contacts__form" id="form">
                         <div class="contacts__form-inner">
                             <p class="contacts__form-title">Быстрая запись</p>
                             <p class="contacts__form-message">Наш менеджер перезвонит в течение нескольких<br> минут,
                                 уточнит подробности и согласует время.</p>
                             <div class="contacts__input-block">
-                                <input class="contacts__form-input" placeholder="Ваше имя"/>
-                                <input class="contacts__form-input" placeholder="+7 (___) ___-__-__"/>
-                                <button class="button -contacts">Записаться</button>
-                                <p class="contacts__agreement">Нажимая на кнопку вы соглашаетесь с <span class="contacts__agreement-url">обработкой<br> персональных данных</span></p>
+                                <input class="contacts__form-input" name="name" placeholder="Ваше имя"/>
+                                <input class="contacts__form-input" name="phone" placeholder="+7 (___) ___-__-__"/>
+                                <button class="button -contacts" type="submit">Записаться</button>
+                                <p class="contacts__agreement">Нажимая на кнопку вы соглашаетесь с <span
+                                        class="contacts__agreement-url">обработкой<br> персональных данных</span></p>
                             </div>
                         </div>
                     </form>
@@ -396,14 +436,31 @@
                 <a class="footer__policy" href="#">Политика конфиденциальности</a>
             </div>
             <nav class="navigation">
-                <a class="navigation-item -footer" href="#">Услуги и цены</a>
-                <a class="navigation-item -footer" href="#">Мастера</a>
-                <a class="navigation-item -footer" href="#">Наши работы</a>
-                <a class="navigation-item -footer" href="#">Контакты</a>
+                <a class="navigation-item -footer" href="#price">Услуги и цены</a>
+                <a class="navigation-item -footer" href="#masters">Мастера</a>
+                <a class="navigation-item -footer" href="#works">Наши работы</a>
+                <a class="navigation-item -footer" href="#contacts">Контакты</a>
             </nav>
         </div>
     </footer>
 </div>
 </body>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper(".works__container", {
 
+        slidesPerView: 3,
+        freeMode: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".works__ellipse-right",
+            prevEl: ".works__ellipse-left",
+        },
+    });
+</script>
+<script src="fslightbox.js"></script>
 </html>
