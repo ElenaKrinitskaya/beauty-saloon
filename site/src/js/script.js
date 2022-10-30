@@ -1,16 +1,35 @@
 const form = document.getElementById('form')
+const formFancybox = document.getElementById('form-fancybox')
 
-form.addEventListener('submit', getFormData)
+async function getFormData() {
+    const data = new FormData(form)
+    let name = data.get('name')
+    let phone = data.get('phone')
 
-function getFormData(e) {
-    e.preventDefault()
-    let name = form.querySelector('[name = "name"]')
-    let phone = form.querySelector('[name = "phone"]')
-    let data = {
-        name: name.value,
-        phone: phone.value
+    try {
+
+        document.getElementById("formButton").disabled = true;
+        document.getElementById("formButton").classList.add('disabled')
+        form.querySelector(".contacts__preloader").classList.remove('hidden')
+        const response = await fetch('https://beauty-saloon-server.herokuapp.com/api/orders', {
+            method: 'POST',
+            body: JSON.stringify({
+                name,
+                phone
+            })
+        });
+        const result = await response.json();
+        document.getElementById("formButton").disabled = false;
+        document.getElementById("formButton").classList.remove('disabled')
+        form.querySelector(".contacts__preloader").classList.add('hidden')
+        form.querySelector(".contacts__result-message").classList.remove('hidden')
+        setTimeout(() => {
+            form.querySelector(".contacts__result-message").classList.add('hidden')
+        }, 3000)
+        console.log('Успех:', JSON.stringify(result));
+    } catch (error) {
+        console.error('Ошибка:', error);
     }
-    console.log(data)
 }
 
 const menu = document.getElementById('price-menu')
@@ -367,4 +386,51 @@ for (let smoothLink of smoothLinks) {
             block: 'start'
         });
     });
+}
+
+async function getFormFancyboxData() {
+    const data = new FormData(formFancybox)
+    let name = data.get('name')
+    let phone = data.get('phone')
+    let masterId = data.get('masterId')
+    let serviceId = data.get('serviceId')
+    let visitDate = data.get('visitDate')
+
+    try {
+
+        document.getElementById("fancyButton").disabled = true;
+        document.getElementById("fancyButton").classList.add('disabled')
+        formFancybox.querySelector(".contacts__preloader").classList.remove('hidden')
+        const response = await fetch('https://beauty-saloon-server.herokuapp.com/api/orders', {
+            method: 'POST',
+            body: JSON.stringify({
+                name,
+                phone,
+                masterId,
+                serviceId,
+                visitDate
+            })
+        });
+        const result = await response.json();
+        document.getElementById("fancyButton").disabled = false;
+        document.getElementById("fancyButton").classList.remove('disabled')
+        formFancybox.querySelector(".contacts__preloader").classList.add('hidden')
+        formFancybox.querySelector(".contacts__result-message").classList.remove('hidden')
+        setTimeout(() => {
+            formFancybox.querySelector(".contacts__result-message").classList.add('hidden')
+            window.location.href = window.location.href.replace("#dialogHeader", '')
+            window.location.href = window.location.href.replace("#dialogFirst", '#popular')
+            window.location.href = window.location.href.replace("#dialogSecond", '#popular')
+            window.location.href = window.location.href.replace("#dialogThird", '#popular')
+            window.location.href = window.location.href.replace("#dialogFourth", '#popular')
+            window.location.href = window.location.href.replace("#dialogFifth", '#popular')
+            window.location.href = window.location.href.replace("#dialogMaster1", '#masters')
+            window.location.href = window.location.href.replace("#dialogMaster2", '#masters')
+            window.location.href = window.location.href.replace("#dialogMaster3", '#masters')
+            window.location.href = window.location.href.replace("#dialogMaster4", '#masters')
+        }, 3000)
+        console.log('Успех:', JSON.stringify(result));
+    } catch (error) {
+        console.error('Ошибка:', error);
+    }
 }

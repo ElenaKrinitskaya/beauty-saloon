@@ -304,6 +304,12 @@ body {
       width: 300px;
     }
   }
+
+  &.disabled {
+    transform: scale(1.05);
+    background: #a6a6a6;
+
+  }
 }
 
 .socials {
@@ -960,6 +966,28 @@ body {
     padding-bottom: 35px;
   }
 
+  &__input-title {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+  }
+
+  &__result-message {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
   &__form-input {
     border: 1px solid #D8D8D8;
     border-radius: 4px;
@@ -981,6 +1009,28 @@ body {
       color: #A0A0A0;
     }
   }
+
+  &__form-select {
+    border: 1px solid #D8D8D8;
+    border-radius: 4px;
+    width: 375px;
+    height: 44px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    color: #333333;
+  }
+
+  &__preloader {
+    width: 15px;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
 
   &__input-block {
     display: flex;
@@ -1074,6 +1124,7 @@ html.noscroll {
   &:hover {
     transform: scale(1.1);
   }
+
   &.-video {
 
     &:hover {

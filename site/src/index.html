@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мир красоты</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="null.css">
     <link rel="stylesheet" href="normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,18 +12,73 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
     <style>
+
+        input.error {
+            border: 1px solid #ff0000;
+        }
+
+        label.error {
+            color: #ff0000;
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
         .swiper {
             max-width: 100%;
             --swiper-theme-color: #00bf78;
         }
-        .swiper-slide{
+
+        .swiper-slide {
             padding-top: 20px;
         }
     </style>
 
 </head>
 <body>
+<div id="dialog-content" style="display:none;max-width:500px;">
+    <form id="form-fancybox">
+
+        <p class="contacts__form-title">Запись</p>
+        <p class="contacts__form-message">Наш менеджер перезвонит в течение нескольких<br> минут,
+            уточнит подробности и согласует время.</p>
+        <div class="contacts__input-block">
+            <input class="contacts__form-input" required id="name" name="name" placeholder="Ваше имя"/>
+            <input class="contacts__form-input" required id="phone" name="phone" data-masked=""
+                   data-inputmask="'mask':  '+7(999) 999-9999'" placeholder="+7 (___) ___-__-__"/>
+            <p class="contacts__input-title">Выберите мастера:</p>
+            <select name="masterId" class="contacts__form-select">
+                <option value="1">Краснова Ирина</option>
+                <option value="2">Калилова Жанна</option>
+                <option value="3">Киселева Алина</option>
+                <option value="4">Иванова Елена</option>
+            </select>
+            <p class="contacts__input-title">Выберите услугу:</p>
+            <select name="serviceId" class="contacts__form-select">
+                <option value="1">Женская стрижка</option>
+                <option value="2">Мужская стрижка</option>
+                <option value="3">Женская стрижка</option>
+                <option value="4">Детский стиль</option>
+                <option value="5">Креативный стиль</option>
+                <option value="6">Экспресс укладка</option>
+            </select>
+            <p class="contacts__input-title">Дата визита:</p>
+            <input name="visitDate" class="contacts__form-message" type="date">
+            <p class="contacts__result-message hidden">Ваша заявка отправлена! <br>В ближайшее время с вами свяжется
+                менеджер.</p>
+            <button class="button -contacts" id="fancyButton" type="submit">
+                <img class="contacts__preloader hidden" src="images/preloader.svg">
+                <span class="contacts__button-text">Записаться</span></button>
+            <p class="contacts__agreement">Нажимая на кнопку вы соглашаетесь с <span
+                    class="contacts__agreement-url">обработкой<br> персональных данных</span></p>
+        </div>
+
+    </form>
+</div>
 <div id="hamb" class="hamb">
     <span class="bar"></span>
     <span class="bar"></span>
@@ -64,15 +119,16 @@
                 <div class="header__hero">
                     <h1 class="header__hero-title">Создай свой образ вместе с нами</h1>
                     <p class="header__hero-text">Идеальный образ за 60 минут</p>
-                    <button class="button">Записаться онлайн</button>
+                    <button data-fancybox="dialogHeader" data-src="#dialog-content" class="button">Записаться онлайн
+                    </button>
                 </div>
                 <div>
-                    <img class="header__girl" src="./images/girl.png">
+                    <img class="header__girl" src="images/girl.png">
                 </div>
                 <div class="socials">
-                    <a href="#"><img class="scale" src="./images/vk.svg"></a>
-                    <a href="#"><img class="scale" src="./images/inst.svg"></a>
-                    <a href="#"><img class="scale" src="./images/yt.svg"></a>
+                    <a href="#"><img class="scale" src="images/vk.svg"></a>
+                    <a href="#"><img class="scale" src="images/inst.svg"></a>
+                    <a href="#"><img class="scale" src="images/yt.svg"></a>
                 </div>
             </div>
 
@@ -130,7 +186,7 @@
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section id="popular" class="section">
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title">Популярные услуги</h2>
@@ -141,7 +197,9 @@
                             <div class="services__photo"></div>
                             <div class="services__title">Маникюр</div>
                             <div class="services__text">Аппаратный, комбинированный или классический.</div>
-                            <button class="button -services">Записаться</button>
+                            <button data-fancybox="dialogFirst" data-src="#dialog-content" class="button -services">
+                                Записаться
+                            </button>
                         </div>
                         <div class="services__item">
                             <div class="services__photo"></div>
@@ -150,7 +208,9 @@
                                 использование базы и топа. Каждый слой <br>
                                 полимеризуется в LED-лампе.
                             </div>
-                            <button class="button -services">Записаться</button>
+                            <button data-fancybox="dialogSecond" data-src="#dialog-content" class="button -services">
+                                Записаться
+                            </button>
 
                         </div>
                         <div class="services__item">
@@ -159,14 +219,18 @@
                             <div class="services__text">Выполняется в одноразовых перчатках наполненных <br>
                                 увлажняющим лосьоном.
                             </div>
-                            <button class="button -services">Записаться</button>
+                            <button data-fancybox="dialogThird" data-src="#dialog-content" class="button -services">
+                                Записаться
+                            </button>
 
                         </div>
                         <div class="services__item">
                             <div class="services__photo"></div>
                             <div class="services__title">Педикюр</div>
                             <div class="services__text">Аппаратный, комбинированный или классический.</div>
-                            <button class="button -services">Записаться</button>
+                            <button data-fancybox="dialogFourth" data-src="#dialog-content" class="button -services">
+                                Записаться
+                            </button>
 
                         </div>
                         <div class="services__item">
@@ -176,7 +240,9 @@
                                 увеличивается на 80%, также выводит токсины и <br>
                                 укрепляет суставы.
                             </div>
-                            <button class="button -services">Записаться</button>
+                            <button data-fancybox="dialogFifth" data-src="#dialog-content" class="button -services">
+                                Записаться
+                            </button>
 
                         </div>
                     </div>
@@ -287,7 +353,7 @@
                     <div class="masters__subtitle">Дружная команда настоящих профессионалов</div>
                     <div class="masters__block">
                         <div class="masters__item">
-                            <div class="masters__item-photo">
+                            <div data-fancybox="dialogMaster1" data-src="#dialog-content" class="masters__item-photo">
                                 <div class="masters__item-photo-text">
                                     <div>Записаться <br> к мастеру</div>
                                 </div>
@@ -297,7 +363,8 @@
                             <div class="masters__item-experience">опыт работы 5 лет</div>
                         </div>
                         <div class="masters__item">
-                            <div class="masters__item-photo -secondMaster">
+                            <div data-fancybox="dialogMaster2" data-src="#dialog-content"
+                                 class="masters__item-photo -secondMaster">
                                 <div class="masters__item-photo-text">
                                     <div>Записаться <br> к мастеру</div>
                                 </div>
@@ -307,7 +374,8 @@
                             <div class="masters__item-experience">опыт работы 5 лет</div>
                         </div>
                         <div class="masters__item">
-                            <div class="masters__item-photo -thirdMaster">
+                            <div data-fancybox="dialogMaster3" data-src="#dialog-content"
+                                 class="masters__item-photo -thirdMaster">
                                 <div class="masters__item-photo-text">
                                     <div>Записаться <br> к мастеру</div>
                                 </div>
@@ -317,7 +385,8 @@
                             <div class="masters__item-experience">опыт работы 5 лет</div>
                         </div>
                         <div class="masters__item">
-                            <div class="masters__item-photo -forthMaster">
+                            <div data-fancybox="dialogMaster4" data-src="#dialog-content"
+                                 class="masters__item-photo -forthMaster">
                                 <div class="masters__item-photo-text">
                                     <div>Записаться <br> к мастеру</div>
                                 </div>
@@ -337,10 +406,10 @@
                     <h2 class="section__title">Наши работы</h2>
                     <div class="works__arrows">
                         <div class="works__ellipse-left">
-                            <img src="./images/arrow-left.svg">
+                            <img src="images/arrow-left.svg">
                         </div>
                         <div class="works__ellipse-right">
-                            <img src="./images/arrow-right.svg">
+                            <img src="images/arrow-right.svg">
                         </div>
                     </div>
                 </div>
@@ -404,9 +473,9 @@
                         <p class="contacts__email">info@more-krasoty.ru</p>
                         <p class="contacts__socials-title">Мы в социальных сетях</p>
                         <div class="socials -bottom">
-                            <a href="#"><img class="scale" src="./images/vk.svg"></a>
-                            <a href="#"><img class="scale" src="./images/inst.svg"></a>
-                            <a href="#"><img class="scale" src="./images/yt.svg"></a>
+                            <a href="#"><img class="scale" src="images/vk.svg"></a>
+                            <a href="#"><img class="scale" src="images/inst.svg"></a>
+                            <a href="#"><img class="scale" src="images/yt.svg"></a>
                         </div>
                     </div>
                     <form class="contacts__form" id="form">
@@ -416,8 +485,15 @@
                                 уточнит подробности и согласует время.</p>
                             <div class="contacts__input-block">
                                 <input class="contacts__form-input" name="name" placeholder="Ваше имя"/>
-                                <input class="contacts__form-input" name="phone" placeholder="+7 (___) ___-__-__"/>
-                                <button class="button -contacts" type="submit">Записаться</button>
+                                <input class="contacts__form-input" data-masked=""
+                                       data-inputmask="'mask':  '+7(999) 999-9999'" name="phone"
+                                       placeholder="+7 (___) ___-__-__"/>
+                                <p class="contacts__result-message hidden">Ваша заявка отправлена! <br>В ближайшее время
+                                    с вами свяжется
+                                    менеджер.</p>
+                                <button id="formButton" class="button -contacts" type="submit">
+                                    <img class="contacts__preloader hidden" src="images/preloader.svg">Записаться
+                                </button>
                                 <p class="contacts__agreement">Нажимая на кнопку вы соглашаетесь с <span
                                         class="contacts__agreement-url">обработкой<br> персональных данных</span></p>
                             </div>
@@ -445,7 +521,7 @@
     </footer>
 </div>
 </body>
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
     const swiper = new Swiper(".works__container", {
@@ -462,5 +538,86 @@
         },
     });
 </script>
-<script src="fslightbox.js"></script>
+<script src="js/fslightbox.js"></script>
+<script type="module">
+    import {Fancybox} from "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.esm.js";
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.3/jquery.inputmask.bundle.min.js"></script>
+<script>
+    jQuery.validator.addMethod("checkMask", function (value, element) {
+        return /\+\d{1}\(\d{3}\)\s\d{3}-\d{4}/g.test(value);
+    });
+    $(function () {
+        $('#form').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                phone: {
+                    required: true,
+                    minlength: 16,
+                    checkMask: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Поле обязательно к заполнению",
+                    minlength: "Введите не менее 2-х символов"
+                },
+                phone: {
+                    required: "Поле обязательно к заполнению",
+                    checkMask: "Введите корректный номер телефона"
+                }
+            }
+        });
+    });
+    $(function () {
+        $('#form-fancybox').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                phone: {
+                    required: true,
+                    minlength: 16,
+                    checkMask: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Поле обязательно к заполнению",
+                    minlength: "Введите не менее 2-х символов"
+                },
+                phone: {
+                    required: "Поле обязательно к заполнению",
+                    checkMask: "Введите корректный номер телефона"
+                }
+            }
+        });
+    });
+    $("#form-fancybox").submit(function (event) {
+        if ($("#form-fancybox").valid()) {
+            event.preventDefault();
+            getFormFancyboxData()
+        }
+
+    });
+    $("#form").submit(function (event) {
+        if ($("#form").valid()) {
+            event.preventDefault();
+            getFormData()
+        }
+
+    });
+    $(document).ready(function () {
+        $(":input").inputmask();
+    });
+</script>
+
 </html>

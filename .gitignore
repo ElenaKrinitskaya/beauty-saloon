@@ -1,3 +1,4 @@
 /node_modules
-/src/css
-/dist
+site/dist
+site/src/css
+site/src/js/main.min.js
