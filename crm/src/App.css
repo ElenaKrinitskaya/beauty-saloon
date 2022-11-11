@@ -1,0 +1,32 @@
+@import '~antd/dist/antd.css';
+
+.login-page {
+    padding-top: 50px;
+    width: 400px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 50px;
+}
+
+.header-filters {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px 50px;
+}
+
+.form {
+    padding: 10px 50px;
+    width: 500px;
+}
+
+.editable-row .ant-form-item-explain {
+    position: absolute;
+    top: 100%;
+    font-size: 12px;
+}
